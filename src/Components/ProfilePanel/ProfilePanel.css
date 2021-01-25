@@ -1,0 +1,17 @@
+.profile-panel{
+    height: 39px;
+    width: calc(100% - 20px);
+    background-color: rgba(255,255,255,1);
+    border-bottom: #dadce0 1px solid;
+    padding: 10px;
+}
+
+.profile-name{
+    background-color: #dadce0;
+    border-radius: 8px;
+    height: calc(100% - 12px);
+    width: calc(100% - 12px);;
+    text-align: center;
+    padding: 6px;
+    cursor: pointer;
+}

@@ -1,0 +1,15 @@
+.side-button-panel{
+    height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+.side-button{
+    height: 25px;
+    padding: 10px 10px 10px 30px;
+    border-bottom: #dadce0 1px solid;
+    cursor: pointer;
+}
+
+.side-button.active{
+    background-color: #dadce0;
+}
