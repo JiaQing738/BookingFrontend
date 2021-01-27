@@ -1,0 +1,33 @@
+.profile-panel{
+    height: 30px;
+    width: calc(100% - 20px);
+    background-color: #2b383f;
+    padding: 10px;
+    display:flex;
+    flex-direction: row;
+}
+
+.profile-name{
+    background-color: #2b383f;
+    border-radius: 4px;
+    height: 24px;
+    width: calc(100% - 42px);
+    text-align: left;
+    margin-top: 3px;
+    padding: 2px;
+    color: white;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline;
+}
+
+.profile-picture{
+    outline: none;
+    height: 35px;
+    width: 35px;
+    padding: 0px;
+    background: none;
+    border: none;
+    fill: white;
+}
