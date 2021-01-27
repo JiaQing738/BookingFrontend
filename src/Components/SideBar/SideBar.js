@@ -5,10 +5,12 @@ import "./SideBar.css";
 
 export default class SideBar extends React.Component {
     render() {
-        const { currentView, onChange, views } = this.props;
+        const { currentView, onChange, views, userName } = this.props;
         return (
             <div className="side-bar">
-                <ProfilePanel/>
+                <ProfilePanel
+                userName={userName}
+                />
                 <SideButtonPanel
                 currentView={currentView}
                 onChange={onChange}
@@ -17,4 +19,4 @@ export default class SideBar extends React.Component {
             </div>
         );
     }
-  }
+}
