@@ -20,7 +20,11 @@ export async function updateBookingSettings(newConfig) {
                 key:config,
                 value:newConfig[config]
             }
-            await restRequest(`http://localhost:8000/bookingConfig/${index+1}`, body, "put")
+            const response = await restRequest(`http://localhost:8000/bookingConfig/${index+1}`, body, "put");
+            if(response.error)
+            {
+                return false;
+            }
         });
         return true;
 

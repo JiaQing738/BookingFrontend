@@ -1,11 +1,10 @@
 import React from 'react';
 import { getBookingSettings, updateBookingSettings } from '../../Actions/BookingSettingActions';
+import { NOTIFICATION_OPTIONS } from '../../Common/Constant';
 import AWN from "awesome-notifications";
 import "./BookingSettingPanel.css";
 
-let globalOptions =  {icons: {enabled: false}}
-let notifier = new AWN(globalOptions)
-
+let notifier = new AWN(NOTIFICATION_OPTIONS)
 
 export default class BookingSettingPanel extends React.Component {
 
@@ -68,14 +67,13 @@ export default class BookingSettingPanel extends React.Component {
                 booking_end_time: booking_end_time
             }
             const result = await updateBookingSettings(config);
-            console.log(result);
             if(result)
             {
                 notifier.success('Updated');
             }
             else
             {
-                notifier.alert('Something went wrong, unable to perform update.');
+                notifier.alert('Something went wrong, unable to update setting.');
             }
         }
     }
