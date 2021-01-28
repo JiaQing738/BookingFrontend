@@ -3,3 +3,66 @@
     height: 100%;
     background-color: #b4c0d2;
 }
+
+.facility-management-content{
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    border: #2b383f 3px solid;
+    position: relative;
+    top: 25%;
+    border-radius: 4px;
+}
+
+.facility-management-header{
+    height: 40px;
+    width: calc(100% - 20px);
+    background-color: #2b383f;
+    padding: 10px;
+    border-radius: 4px;
+}
+  
+.facility-management-header-label{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.facility-management-body{
+    margin-top: 10px;
+    background-color: #2b383f;
+    color: white;
+}
+
+.facility-management-button{
+    float: right;
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: #597582;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.facility-management-button:hover{
+    background-color: white;
+    color: black;
+}
+
+.facility-management-table-button{
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+    outline: none;
+    background: none;
+    border: none;
+    fill: white;
+    cursor: pointer;
+}
+
+.facility-management-table-button:hover{
+    fill: #2b383f;
+}

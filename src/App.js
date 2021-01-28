@@ -4,6 +4,9 @@ import MakeBookingPanel from './Components/MakeBookingPanel/MakeBookingPanel';
 import BookingSettingPanel from './Components/BookingSettingPanel/BookingSettingPanel';
 import FacilityManagementPanel from './Components/FacilityManagementPanel/FacilityManagementPanel';
 import "awesome-notifications/dist/style.css";
+import './react-responsive-modal.css';
+import './react-confirm-alert.css';
+import "./react-table.css";
 import './App.css';
 import { DEFAULT_VIEW, VIEWS, MAKE_BOOKING, FACILITY_MANAGEMENT, BOOKING_SETTING } from './Common/Constant';
 
