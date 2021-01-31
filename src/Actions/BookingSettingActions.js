@@ -23,6 +23,7 @@ export async function updateBookingSettings(newConfig) {
             const response = await restRequest(`http://localhost:8000/bookingConfig/${index+1}`, body, "put");
             if(response.error)
             {
+                console.log(response.error);
                 return false;
             }
         });

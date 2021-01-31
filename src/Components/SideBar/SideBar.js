@@ -5,7 +5,7 @@ import "./SideBar.css";
 
 export default class SideBar extends React.Component {
     render() {
-        const { currentView, onChange, views, userName } = this.props;
+        const { currentView, onChange, views, userName, onLogout } = this.props;
         return (
             <div className="side-bar">
                 <ProfilePanel
@@ -16,6 +16,9 @@ export default class SideBar extends React.Component {
                 onChange={onChange}
                 views={views}
                 />
+                <div className="logout-panel">
+                    <button className="logout-button" onClick={onLogout}>Log Out</button>
+                </div>
             </div>
         );
     }
