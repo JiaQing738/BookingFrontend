@@ -1,0 +1,78 @@
+.make-booking-modal{
+    width: 450px;
+    border-radius: 4px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
+    background-color: #b4c0d2;
+}
+
+.make-booking-modal-header{
+    width: calc(100% - 20px);
+    height: 20px;
+    background-color: #2b383f;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 5px 10px 5px 10px;
+}
+
+.make-booking-modal-header-label{
+    color:white;
+}
+
+.make-booking-modal-body{
+    padding: 10px;
+}
+
+.make-booking-modal-table{
+    width: 100%;
+}
+
+.make-booking-modal-input{
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    height: 20px;
+    width: calc(100% - 10px);
+    padding: 0px 5px 0px 5px;
+}
+
+.make-booking-modal-select{
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    height: 20px;
+    width: 100%;
+    padding: 0px 5px 0px 5px;
+}
+
+.make-booking-modal-footer{
+    width: calc(100% - 20px);
+    padding: 10px;
+    text-align: right;
+}
+
+.make-booking-modal-button{
+    height: 25px;
+    width: 100px;
+    margin-left: 5px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    background-color: #597582;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.make-booking-modal-button:hover{
+    background-color: white;
+    color: black;
+}
+
+.make-booking-modal-dt-picker{
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    height: 20px;
+    width: calc(100% - 10px);
+    padding: 0px 5px 0px 5px;
+}

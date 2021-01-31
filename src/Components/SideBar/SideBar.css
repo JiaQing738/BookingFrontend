@@ -2,3 +2,19 @@
     height: 100%;
     width: 100%;
 }
+
+.logout-panel{
+    padding: 10px;
+}
+
+.logout-button{
+    height: 45px;
+    padding: 10px 10px 10px 30px;
+    background-color:#597582;
+    cursor: pointer;
+    border-radius: 8px;
+    color: white;
+    width: 100%;
+    outline: none;
+    border: none;
+}

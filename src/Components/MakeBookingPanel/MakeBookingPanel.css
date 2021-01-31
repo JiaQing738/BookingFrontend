@@ -3,3 +3,74 @@
     height: 100%;
     background-color: #b4c0d2;
 }
+
+.make-booking-content{
+    width: 800px;
+    margin: auto;
+    padding: 10px;
+    border: #2b383f 3px solid;
+    position: relative;
+    top: 25%;
+    border-radius: 4px;
+}
+
+.make-booking-header{
+    height: 40px;
+    width: calc(100% - 20px);
+    background-color: #2b383f;
+    padding: 10px;
+    border-radius: 4px;
+}
+  
+.make-booking-header-label{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.make-booking-body{
+    margin-top: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.make-booking-body::-webkit-scrollbar {
+    background: #8da0a8;
+    width: 10px;
+}
+
+.make-booking-body::-webkit-scrollbar-thumb {
+    background: rgb(91, 103, 109);
+}
+
+.make-booking-body::-webkit-scrollbar-track {
+    background:  #8da0a8;
+}
+
+.make-booking-modal-label{
+    margin-left: 10px;
+}
+
+.make-booking-button{
+    float: right;
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: #597582;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.make-booking-modal-label{
+    font-size: 12px;
+}
+
+.make-booking-no-entry{
+    padding: 10px;
+    text-align: center;
+    width:calc(100%-20px);
+    font-size: 20px;
+}
