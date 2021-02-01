@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProfilePanel from '../ProfilePanel/ProfilePanel';
 import SideButtonPanel from '../SideButtonPanel/SideButtonPanel';
 import "./SideBar.css";
@@ -23,3 +24,11 @@ export default class SideBar extends React.Component {
         );
     }
 }
+
+SideBar.propTypes = {
+    currentView: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    views: PropTypes.arrayOf(PropTypes.string),
+    userName: PropTypes.string,
+    onLogout: PropTypes.func.isRequired
+};

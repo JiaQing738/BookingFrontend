@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NOTIFICATION_OPTIONS, ONE_HOUR } from '../../Common/Constant';
 import DatePicker from 'react-datepicker';
 import AWN from "awesome-notifications";
@@ -13,19 +14,25 @@ export default class MakeBookingModal extends React.Component {
         this.state = {
             facility: '',
             purpose: '',
-            start_dt: '',
-            end_dt: '',
+            start_dt: null,
+            end_dt: null,
+            minDate: null,
+            maxDate: null
         }
         this.onSave = this.onSave.bind(this);
     }
 
     componentDidMount(){
-        const { facilitiesList } = this.props;
+        const { facilitiesList, configs } = this.props;
         var timeNow = new Date();
         timeNow.setSeconds(0,0);
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        var maxBooking = new Date(today);
+        maxBooking.setDate(maxBooking.getDate() + parseInt(configs.max_bookahead))
         if (facilitiesList.length !== 0)
         {
-            this.setState({facility: facilitiesList[0].id, start_dt:timeNow, end_dt:timeNow});
+            this.setState({facility: facilitiesList[0].id, start_dt:timeNow, end_dt:timeNow, minDate:today, maxDate:maxBooking});
         }
     }
 
@@ -80,7 +87,7 @@ export default class MakeBookingModal extends React.Component {
 
     render() {
         const { onCancel, facilitiesList, configs } = this.props;
-        const { facility, purpose, start_dt, end_dt} = this.state;
+        const { facility, purpose, start_dt, end_dt, minDate, maxDate} = this.state;
         return(
         <div className="make-booking-modal">
             <div className="make-booking-modal-header">
@@ -123,6 +130,8 @@ export default class MakeBookingModal extends React.Component {
                                 className="make-booking-modal-dt-picker"
                                 selected={start_dt}
                                 onChange={date => {this.setState({start_dt:date})}}
+                                maxDate={maxDate}
+                                minDate={minDate}
                                 dateFormat="MMMM d, yyyy h:mm aa"
                                 showTimeSelect
                                 placeholderText="Select Start Date"
@@ -138,6 +147,8 @@ export default class MakeBookingModal extends React.Component {
                                 className="make-booking-modal-dt-picker"
                                 selected={end_dt}
                                 onChange={date => {this.setState({end_dt:date})}}
+                                maxDate={maxDate}
+                                minDate={minDate}
                                 dateFormat="MMMM d, yyyy h:mm aa"
                                 showTimeSelect
                                 placeholderText="Select End Date"
@@ -161,3 +172,11 @@ export default class MakeBookingModal extends React.Component {
         </div>)
     }
 }
+
+MakeBookingModal.propTypes = {
+    configs: PropTypes.object,
+    facilitiesList: PropTypes.arrayOf(PropTypes.object),
+    bookingsList: PropTypes.arrayOf(PropTypes.object),
+    onCancel: PropTypes.func.isRequired,
+    onSave: PropTypes.func.isRequired
+};

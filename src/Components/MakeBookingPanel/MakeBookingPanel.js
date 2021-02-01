@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { getFacilityDetails } from '../../Actions/FacilityDetailActions';
 import { getBookingSettings } from '../../Actions/BookingSettingActions';
 import { getBookings } from '../../Actions/BookingActions';
@@ -24,7 +25,7 @@ export default class MakeBookingPanel extends React.Component {
         super(props);
         this.state = {
             bookings: [],
-            configs: [],
+            configs: null,
             facilities: [],
             newBooking: false
         }
@@ -207,3 +208,8 @@ export default class MakeBookingPanel extends React.Component {
         );
     }
 }
+
+MakeBookingPanel.propTypes = {
+    userName: PropTypes.string,
+    email: PropTypes.string
+};

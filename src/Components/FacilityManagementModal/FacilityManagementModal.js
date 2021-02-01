@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { STATUS_OPTIONS, NOTIFICATION_OPTIONS } from '../../Common/Constant';
 import AWN from "awesome-notifications";
 import "./FacilityManagementModal.css";
@@ -105,3 +106,11 @@ export default class FacilityManagementModal extends React.Component {
         </div>)
     }
 }
+
+FacilityManagementModal.propTypes = {
+    mode: PropTypes.string,
+    facility: PropTypes.object,
+    onCancel: PropTypes.func.isRequired,
+    onSave: PropTypes.func.isRequired,
+    facilitiesList: PropTypes.arrayOf(PropTypes.object),
+};

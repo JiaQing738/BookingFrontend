@@ -1,10 +1,10 @@
 import { restRequest } from '../Common/Utils';
-import { MAX_BOOKINGS_PER_CALL } from '../Common/Constant';
+import { MAX_BOOKINGS_PER_CALL, BACKEND_HOST, BACKEND_PORT } from '../Common/Constant';
 
 export async function getBookings(userId=null) {
     try {
         var allResult = [];
-        const recordCount = await fetch(`http://localhost:8000/bookingsCount${(userId)?`?user_id=${userId}`:''}`).then((response)=>{
+        const recordCount = await fetch(`http://${BACKEND_HOST}:${BACKEND_PORT}/bookingsCount${(userId)?`?user_id=${userId}`:''}`).then((response)=>{
             return response.json();
         });
         if(recordCount===0)
@@ -15,7 +15,7 @@ export async function getBookings(userId=null) {
         {
             var index = 0;
             do{
-                const result = await fetch(`http://localhost:8000/bookings?start=${index}&count=${MAX_BOOKINGS_PER_CALL}${(userId)?`&user_id=${userId}`:''}`).then((response)=>{
+                const result = await fetch(`http://${BACKEND_HOST}:${BACKEND_PORT}/bookings?start=${index}&count=${MAX_BOOKINGS_PER_CALL}${(userId)?`&user_id=${userId}`:''}`).then((response)=>{
                     return response.json();
                 });
                 allResult = allResult.concat(result);
@@ -33,7 +33,7 @@ export async function getBookings(userId=null) {
 
 export async function createBooking(newBooking) {
     try {
-        const response = await restRequest(`http://localhost:8000/booking`, newBooking, "post");
+        const response = await restRequest(`http://${BACKEND_HOST}:${BACKEND_PORT}/booking`, newBooking, "post");
         if(response.error)
         {
             console.log(response.error);
@@ -49,7 +49,7 @@ export async function createBooking(newBooking) {
 
 export async function deleteBooking(id) {
     try {
-        const response = await restRequest(`http://localhost:8000/booking/${id}`, {}, "delete");
+        const response = await restRequest(`http://${BACKEND_HOST}:${BACKEND_PORT}/booking/${id}`, {}, "delete");
         if(response.error)
         {
             console.log(response.error);
