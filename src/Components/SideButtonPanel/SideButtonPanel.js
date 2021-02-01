@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import "./SideButtonPanel.css";
 
 export default class SideButtonPanel extends React.Component {
@@ -18,4 +19,10 @@ export default class SideButtonPanel extends React.Component {
             </div>
         );
     }
-  }
+}
+
+SideButtonPanel.propTypes = {
+    currentView: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    views: PropTypes.arrayOf(PropTypes.string)
+};

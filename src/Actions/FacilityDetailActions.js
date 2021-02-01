@@ -1,10 +1,10 @@
 import { restRequest } from '../Common/Utils';
-import { MAX_FACILITY_DETAILS_PER_CALL } from '../Common/Constant';
+import { MAX_FACILITY_DETAILS_PER_CALL, BACKEND_HOST, BACKEND_PORT } from '../Common/Constant';
 
 export async function getFacilityDetails(status=null) {
     try {
         var allResult = [];
-        const recordCount = await fetch(`http://localhost:8000/facilityDetailsCount${(status)?`?status=${status}`:''}`).then((response)=>{
+        const recordCount = await fetch(`http://${BACKEND_HOST}:${BACKEND_PORT}/facilityDetailsCount${(status)?`?status=${status}`:''}`).then((response)=>{
             return response.json();
         });
 
@@ -16,7 +16,7 @@ export async function getFacilityDetails(status=null) {
         {
             var index = 0;
             do{
-                const result = await fetch(`http://localhost:8000/facilityDetails?start=${index}&count=${MAX_FACILITY_DETAILS_PER_CALL}${(status)?`&status=${status}`:''}`).then((response)=>{
+                const result = await fetch(`http://${BACKEND_HOST}:${BACKEND_PORT}/facilityDetails?start=${index}&count=${MAX_FACILITY_DETAILS_PER_CALL}${(status)?`&status=${status}`:''}`).then((response)=>{
                     return response.json();
                 });
                 allResult = allResult.concat(result);
@@ -38,7 +38,7 @@ export async function updateFacilityDetail(updateDetail) {
         return false;
     }
     try {
-        const response = await restRequest(`http://localhost:8000/facilityDetail/${updateDetail.id}`, updateDetail, "put")
+        const response = await restRequest(`http://${BACKEND_HOST}:${BACKEND_PORT}/facilityDetail/${updateDetail.id}`, updateDetail, "put")
         if(response.error)
         {
             console.log(response.error);
@@ -54,7 +54,7 @@ export async function updateFacilityDetail(updateDetail) {
 
 export async function createFacilityDetail(newFacility) {
     try {
-        const response = await restRequest(`http://localhost:8000/facilityDetail`, newFacility, "post");
+        const response = await restRequest(`http://${BACKEND_HOST}:${BACKEND_PORT}/facilityDetail`, newFacility, "post");
         if(response.error)
         {
             console.log(response.error);
@@ -70,7 +70,7 @@ export async function createFacilityDetail(newFacility) {
 
 export async function deleteFacilityDetail(id) {
     try {
-        const response = await restRequest(`http://localhost:8000/facilityDetail/${id}`, {}, "delete");
+        const response = await restRequest(`http://${BACKEND_HOST}:${BACKEND_PORT}/facilityDetail/${id}`, {}, "delete");
         if(response.error)
         {
             console.log(response.error);

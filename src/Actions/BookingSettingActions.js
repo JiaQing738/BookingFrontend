@@ -1,9 +1,9 @@
 import { restRequest } from '../Common/Utils';
-import { BOOKING_CONFIG } from '../Common/Constant';
+import { BOOKING_CONFIG, BACKEND_HOST, BACKEND_PORT } from '../Common/Constant';
 
 export async function getBookingSettings() {
     try {
-        const result = await fetch("http://localhost:8000/bookingConfigs").then((response)=>{
+        const result = await fetch(`http://${BACKEND_HOST}:${BACKEND_PORT}/bookingConfigs`).then((response)=>{
             return response.json();
         });
         return result;
@@ -20,7 +20,7 @@ export async function updateBookingSettings(newConfig) {
                 key:config,
                 value:newConfig[config]
             }
-            const response = await restRequest(`http://localhost:8000/bookingConfig/${index+1}`, body, "put");
+            const response = await restRequest(`http://${BACKEND_HOST}:${BACKEND_PORT}/bookingConfig/${index+1}`, body, "put");
             if(response.error)
             {
                 console.log(response.error);

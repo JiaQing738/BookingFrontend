@@ -32,3 +32,6 @@ export const MAX_FACILITY_DETAILS_PER_CALL = 50;
 export const MAX_BOOKINGS_PER_CALL = 50;
 
 export const ONE_HOUR = 60 * 60 * 1000;
+
+export const BACKEND_HOST = process.env.REACT_APP_BACKEND_HOST || 'localhost';
+export const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT || '8000';
