@@ -47,8 +47,8 @@ export default class MakeBookingPanel extends React.Component {
     async onSave(booking) {
         const { userName, email } = this.props;
         const bookingRecord = {...booking, user_id: userName, email: email}
-        var success = await createBooking(bookingRecord);
-        if(success)
+        var errorMsg = await createBooking(bookingRecord);
+        if(errorMsg==='')
         {
             notifier.success(`Booking Made`);
             this.setState({newBooking:false});
@@ -56,7 +56,16 @@ export default class MakeBookingPanel extends React.Component {
         }
         else
         {
-            notifier.alert(`Something went wrong, unable to create Booking`);
+            if(errorMsg==="Overlap Bookings")
+            {
+                notifier.warning(`There is an overlap booking, please choose another timing`);
+                this.setState({newBooking:false});
+                this.retrieveData();
+            }
+            else
+            {
+                notifier.alert(`Something went wrong, unable to create Booking`);
+            }
         }
     }
 

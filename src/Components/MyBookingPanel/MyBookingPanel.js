@@ -50,11 +50,12 @@ export default class MyBookingPanel extends React.Component {
     }
 
     async deleteBooking(id){
+        const { userId } = this.props;
         const success = await deleteBooking(id);
         if(success)
         {
             notifier.success(`Booking canceled`);
-            this.retrieveMyBookings();
+            this.retrieveMyBookings(userId);
         }
         else
         {
