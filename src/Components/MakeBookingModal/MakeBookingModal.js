@@ -39,7 +39,7 @@ export default class MakeBookingModal extends React.Component {
     onSave(){
         const { bookingsList, configs, onSave } = this.props;
         const { facility, start_dt, end_dt, purpose } = this.state;
-        const currentFacilityBooking = bookingsList.filter((booking)=>booking.id === facility);
+        const currentFacilityBooking = bookingsList.filter((booking)=>booking.group === facility);
         const startTimeInHourMinute = new Date(null, null, null, start_dt.getHours(), start_dt.getMinutes());
         const endTimeInHourMinute = new Date(null, null, null, end_dt.getHours(), end_dt.getMinutes());
 

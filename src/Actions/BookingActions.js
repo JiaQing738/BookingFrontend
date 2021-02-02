@@ -36,14 +36,12 @@ export async function createBooking(newBooking) {
         const response = await restRequest(`http://${BACKEND_HOST}:${BACKEND_PORT}/booking`, newBooking, "post");
         if(response.error)
         {
-            console.log(response.error);
-            return false;
+            return response.error;
         }
-        return true;
+        return '';
 
     } catch (error) {
-        console.log(error);
-        return false;
+        return error;
     }
 }
 
