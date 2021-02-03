@@ -79,7 +79,7 @@ export default class MyBookingPanel extends React.Component {
                         </div>:
                         <div className="my-booking-list">
                             {myBooking.map((booking, index)=>{
-                                const facility = facilityList.find(fac=>fac.id===booking.id)
+                                const facility = facilityList.find(fac=>fac.id===booking.facility_id)
                                 const start = new Date(booking.start_dt);
                                 const end = new Date(booking.end_dt);
                                 return (
